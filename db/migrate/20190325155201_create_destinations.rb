@@ -4,7 +4,7 @@ class CreateDestinations < ActiveRecord::Migration[5.2]
       t.string :booking_url
       t.string :name
       t.string :location_url
-      t.string :description
+      t.text :description
 
       t.timestamps
     end
