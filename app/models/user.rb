@@ -21,4 +21,14 @@ class User < ApplicationRecord
   #   following.include?(other_user)
   # end
 
+  def new_user_trip(title, destination_id)
+    @trip = Trip.new
+    @trip.title = title
+    @destination = Destination.find(destination_id)
+    @trip.user_id = self.id
+    @trip.destination = @destination
+    @trip.save
+    self.trip = @trip
+  end
+
  end
