@@ -10,6 +10,8 @@ class DestinationsController < ApplicationController
 
    def show
     @destination = Destination.find(params[:id])
+    @trips = @destination.trips
+    @reviews = @destination.reviews
    end
 
    def create

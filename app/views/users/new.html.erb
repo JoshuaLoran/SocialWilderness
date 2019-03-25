@@ -1,13 +1,13 @@
 <h1>Create a new user:</h1>
 
 <%= form_for @user do |f|%>
-<%= f.label :name %>
-<%= f.text_field :name %><br><br>
-<%= f.label :age %>
-<%= f.number_field :age%><br><br>
-<%= f.label :description %>
-<%= f.text_area :description %><br><br>
-<%= f.label :image_url, "Image"%>
-<%= f.text_field :image_url %><br><br>
-<%= f.submit %>
+  <h3><%= f.label :name %></h3>
+  <%= f.text_field :name %><br>
+  <h3><%= f.label :age %></h3>
+  <%= f.number_field :age%><br>
+  <h3><%= f.label :description %></h3>
+  <%= f.text_area :description %><br>
+  <h3><%= f.label :image_url, "Image"%></h3>
+  <%= f.text_field :image_url %><br><br>
+  <%= f.submit %>
 <% end %>

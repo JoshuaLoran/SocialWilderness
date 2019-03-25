@@ -10,6 +10,8 @@ class UsersController < ApplicationController
 
    def show
     @user = User.find(params[:id])
+    @trips = @user.trips
+    @reviews = @user.reviews
    end
 
    def create
@@ -34,7 +36,6 @@ class UsersController < ApplicationController
    end
 
    private
-
 
    def user_params
      params.require(:user).permit!

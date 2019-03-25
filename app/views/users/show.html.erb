@@ -5,6 +5,16 @@
 <%=label_tag(@user.age)%><br><br>
 <%=label_tag(@user.description)%><br><br>
 <%=label_tag(@user.image_url)%>
+<ul>
+  <h3><%= @user.name %>'s Trips</h3>
+  <%@user.trips.each do |trip| %>
+  <li><%=trip.title %> - <%= link_to trip.destination.name, destination_path(trip.destination_id) %></li>
+  <% end %>
+</ul>
 
-
-#add user.trips for trips taken
+<ul>
+  <h3><%= @user.name %>'s Reviews</h3>
+  <%@user.reviews.each do |review| %>
+  <li><%=review.title %>: <%= review.content %></li>
+  <% end %>
+</ul>
