@@ -8,13 +8,13 @@
 <ul>
   <h3><%= @user.name %>'s Trips</h3>
   <%@user.trips.each do |trip| %>
-  <li><%=trip.title %> - <%= link_to trip.destination.name, destination_path(trip.destination_id) %></li>
+  <p><li><%=trip.title %> - <%= link_to trip.destination.name, destination_path(trip.destination_id) %></li></p>
   <% end %>
 </ul>
 
 <ul>
   <h3><%= @user.name %>'s Reviews</h3>
   <%@user.reviews.each do |review| %>
-  <li><%=review.title %>: <%= review.content %></li>
+  <p><li><b><%=review.title %></b>: <%= review.content %></li></p>
   <% end %>
 </ul>

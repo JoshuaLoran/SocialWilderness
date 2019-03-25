@@ -1,5 +1,3 @@
-#user reviews for the destination
-
 <h1>Destination:</h1>
 
 <%= form_tag @destination %>
@@ -7,3 +5,11 @@
 <%=label_tag(@destination.description)%><br><br>
 <%=label_tag(@destination.location_url)%><br><br>
 <%=label_tag(@destination.booking_url)%>
+<ul>
+  <% @destination.reviews.each do |review| %>
+  <li><p><b><%= review.title %></b><br>
+    <small>Written by: <%= link_to review.user.name, user_path(review.user_id) %></small><br>
+      <%= review.content %></p>
+  <% end %>
+  </li>
+</ul>
