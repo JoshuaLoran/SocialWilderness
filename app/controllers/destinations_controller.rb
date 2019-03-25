@@ -18,9 +18,11 @@ class DestinationsController < ApplicationController
    end
 
    def edit
+     @destination = Destination.find(params[:id])
    end
 
    def update
+     @destination = Destination.find(params[:id])
      @destination.update(destination_params)
      redirect_to destination_path(@destination)
    end
@@ -32,7 +34,7 @@ class DestinationsController < ApplicationController
    end
 
    private
-  
+
 
    def destination_params
      params.require(:destination).permit!
