@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking_url: MyString
+  name: MyString
+  location_url: MyString
+  description: MyString
+
+two:
+  booking_url: MyString
+  name: MyString
+  location_url: MyString
+  description: MyString
