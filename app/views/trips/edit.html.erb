@@ -1,0 +1,10 @@
+<label><h1>Editing <%= @trip.title.titleize  %></h1></label>
+  <%= form_for @trip do |f| %>
+    <h3>Select <%= f.label :title %></h3>
+    <p><%= f.text_field :title %></p>
+    <h3>Select Destination</h3>
+    <p><%= f.collection_select :destination_id, Destination.all, :id, :name %></p>
+    <%= f.submit %>
+  <% end %>
+<%= link_to "View All Trips", trips_path %><br>
+<%# <%= link_to "Go Home", user_path %>
