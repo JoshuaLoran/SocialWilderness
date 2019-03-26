@@ -1,16 +1,27 @@
-<h1>Destination: <%= @destination.name %></h1>
+<div class="container-fluid">
+<b><h1>Destination:</h1><b>
 
 <%= form_tag @destination %>
-<h4>Site Summary:</h4>
-<p><%=label_tag(@destination.description)%></p>
-<%=label_tag(@destination.location_url)%><br><br>
-<%=label_tag(@destination.booking_url)%>
-<ul>
-  <h4>User Reviews</h4>
+<%=label_tag(@destination.name)%><br><br>
+<%=label_tag(@destination.description)%><br><br>
+
+</div>
+<body>
+
+
   <% @destination.reviews.each do |review| %>
-  <li><p><b><%= review.title %></b><br>
-    <small>Written by: <%= link_to review.user.name, user_path(review.user_id) %></small><br>
-      <%= review.content %></p>
+      <div class="col-5">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><p><b><%= review.title %></h4>
+            <h6 class="card-subtitle mb-2 text-muted">By: <%= link_to review.user.name, user_path(review.user_id) %></h6>
+            <p class="card-text">
+              <%= review.content %>
+            </p>
+            <a href="<%=@destination.location_url%>" class="card-link">Location</a>
+            <a href="<%=@destination.booking_url%>" class="card-link">Book now</a>
+          </div>
+        </div>
+      </div><br>
   <% end %>
-  </li>
-</ul>
+  </body>
