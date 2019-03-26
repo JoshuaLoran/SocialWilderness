@@ -1,0 +1,19 @@
+<h1><%=@user.name%></h1>
+
+<%= form_tag @user %>
+<p><b>Age: </b><%=label_tag(@user.age)%></p>
+<p><b>About Me: </b><%=label_tag(@user.description)%></p><br>
+<img src= '<%=@user.image_url%>'><br>
+<ul>
+  <h3><%= @user.name %>'s Trips</h3>
+  <%@user.trips.each do |trip| %>
+  <p><li><%=trip.title %> - <%= link_to trip.destination.name, destination_path(trip.destination_id) %></li></p>
+  <% end %>
+</ul>
+
+<ul>
+  <h3><%= @user.name %>'s Reviews</h3>
+  <%@user.reviews.each do |review| %>
+  <p><li><b><%=review.title %></b>: <%= review.content %></li></p>
+  <% end %>
+</ul>

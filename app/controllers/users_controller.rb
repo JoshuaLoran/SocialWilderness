@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_users, only: [:edit, :update, :destroy, :show]
+  before_action :set_users, only: [:edit, :update, :destroy, :show, :profile]
+  skip_before_action :require_login, only: [:show, :index, :search, :new, :create]
 
    def index
      @users = User.all
@@ -13,25 +14,29 @@ class UsersController < ApplicationController
      @user = User.search(params[:search])
    end
 
-   def show
+   def profile
+     render 'profile'
    end
 
    def create
-    @user=User.create(user_params)
-     redirect_to user_path(@user)
-   end
-
-   def edit
+    user=User.create(user_params)
+    if user.valid?
+      session[:user_id] = user.id
+      redirect_to "/users/#{user.id}/profile"
+    else
+      flash[:message] = user.errors.full_messages
+      redirect_to new_user_path
+    end
    end
 
    def update
      @user.update(user_params)
-     redirect_to user_path(@user)
+     redirect_to @user
    end
 
    def delete
      @user.destroy
-     redirect_to user_path
+     redirect_to users_path
    end
 
    private
