@@ -31,4 +31,10 @@ class User < ApplicationRecord
     self.trip = @trip
   end
 
+  def self.search(search)
+    if search
+      user = User.find_by(name: search)
+    end
+  end
+
  end

@@ -1,4 +1,5 @@
 class DestinationsController < ApplicationController
+  before_action :set_destinations, only: [:edit, :update, :destroy, :show]
 
    def index
      @destinations = Destination.all
@@ -8,8 +9,11 @@ class DestinationsController < ApplicationController
      @destination = Destination.new
    end
 
+   def search
+     @destination = Destination.search(params[:search])
+   end
+
    def show
-    @destination = Destination.find(params[:id])
    end
 
    def create
@@ -18,23 +22,23 @@ class DestinationsController < ApplicationController
    end
 
    def edit
-     @destination = Destination.find(params[:id])
    end
 
    def update
-     @destination = Destination.find(params[:id])
      @destination.update(destination_params)
      redirect_to destination_path(@destination)
    end
 
    def delete
-     @destination = Destination.find(params[:id])
      @destination.destroy
      redirect_to destination_path
    end
 
    private
 
+   def set_destinations
+     @destination = Destination.find(params[:id])
+   end
 
    def destination_params
      params.require(:destination).permit!

@@ -1,12 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_users, only: [:edit, :update, :destroy, :show]
-  
+
    def index
      @users = User.all
    end
 
    def new
      @user = User.new
+   end
+
+   def search
+     @user = User.search(params[:search])
    end
 
    def show

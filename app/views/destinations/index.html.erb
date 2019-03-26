@@ -1,0 +1,15 @@
+<h3>Search by Destination Name:</h3>
+
+<%= form_tag('/destinations/search', method: "get") do %>
+  <%= label_tag :search %>
+  <%= text_field_tag :search %>
+  <%= submit_tag "Search" %><br>
+  <small><b><i>Spelling and Capitalization Sensitive</i></b></small>
+<% end %>
+
+<h3>All Destinations</h3>
+<ul>
+    <% @destinations.each do |destination| %>
+      <%= link_to destination.name, destination %><br>
+    <% end %>
+</ul>
