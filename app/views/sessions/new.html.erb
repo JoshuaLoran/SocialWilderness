@@ -1,0 +1,18 @@
+
+<br>
+<h1>Welcome!</h1>
+
+<%= form_tag login_path do%>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+  <%= submit_tag "Login" %>
+<% end %>
+
+<h3>Search Users by Email:</h3>
+
+<%= form_tag('/users/search', method: "get") do %>
+  <%= label_tag :search %>
+  <%= text_field_tag :search %>
+  <%= submit_tag "Search" %><br>
+  <small><i>Spelling and Capitalization Sensitive</i></small>
+<% end %>

@@ -1,13 +1,13 @@
 <h1>Create a new destination:</h1>
 
 <%= form_for @destination do |f|%>
-<%= f.label :name %>
-<%= f.text_field :name %><br><br>
-<%= f.label :description %>
-<%= f.text_area :description %><br><br>
-<%= f.label :location_url %>
-<%= f.text_field :location_url%><br><br>
-<%= f.label :booking_url, "Image"%>
-<%= f.text_field :booking_url %><br><br>
-<%= f.submit %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br><br>
+  <%= f.label :description %>
+  <%= f.text_area :description %><br><br>
+  <%= f.label :location_url %>
+  <%= f.text_field :location_url%><br><br>
+  <%= f.label :booking_url, "Image"%>
+  <%= f.text_field :booking_url %><br><br>
+  <%= f.submit %>
 <% end %>
