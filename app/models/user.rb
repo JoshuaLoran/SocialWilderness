@@ -2,7 +2,11 @@ class User < ApplicationRecord
   has_many :destinations
   has_many :trips
   has_many :reviews
-  
+  validates :email, {presence: true, uniqueness: true}
+  validates :name, presence: true
+
+  has_secure_password
+
   def new_user_trip(title, destination_id)
     @trip = Trip.new
     @trip.title = title
@@ -15,7 +19,7 @@ class User < ApplicationRecord
 
   def self.search(search)
     if search
-      user = User.find_by(name: search)
+      user = User.find_by(email: search)
     end
   end
 

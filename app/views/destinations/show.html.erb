@@ -1,14 +1,13 @@
 <div class="container-fluid">
-<b><h1>Destination:</h1><b>
+<b><h1>Destination: <%= @destination.name %></h1><b>
 
 <%= form_tag @destination %>
-<%=label_tag(@destination.name)%><br><br>
 <%=label_tag(@destination.description)%><br><br>
 
 </div>
 <body>
 
-
+  <h4>User Reviews</h4>
   <% @destination.reviews.each do |review| %>
       <div class="col-5">
         <div class="card">

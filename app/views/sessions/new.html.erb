@@ -1,0 +1,11 @@
+
+<br>
+<h1>Welcome!</h1>
+
+<%= form_tag login_path do%>
+  <p><h4><%= label_tag :email %></h4>
+  <%= text_field_tag :email %></p>
+  <p><h4><%= label_tag :password %></h4>
+  <%= password_field_tag :password %></p>
+  <%= submit_tag "Login" %>
+<% end %>

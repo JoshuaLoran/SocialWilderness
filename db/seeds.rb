@@ -11,7 +11,7 @@ Review.destroy_all
 Trip.destroy_all
 
 User.create(name: "Tom Hanks", age: 65, description: "Great actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Tom_Hanks_2014.jpg/220px-Tom_Hanks_2014.jpg", email: "tomhanks@somemail.com", password: "big")
-User.create(name: "Leo", age: 45, description: "Another great actor", image_url: "https://m.media-amazon.com/images/M/MV5BMjI0MTg3MzI0M15BMl5BanBnXkFtZTcwMzQyODU2Mw@@._V1_UY317_CR10,0,214,317_AL_.jpg", email: "Leo@somemail.com", password: "leo")
+User.create(name: "Leo", age: 45, description: "Another great actor", image_url: "https://m.media-amazon.com/images/M/MV5BMjI0MTg3MzI0M15BMl5BanBnXkFtZTcwMzQyODU2Mw@@._V1_UY317_CR10,0,214,317_AL_.jpg", email: "leo@somemail.com", password: "leo")
 
 Destination.create(name: "Grand Canyon Park", location_url: "https://www.visitarizona.com/cities/northern/grand-canyon-village", booking_url: "https://www.wildwestrvresort.com/", description: "Unique combinations of geologic color and erosional forms decorate a canyon that is 277 river miles (446km) long, up to 18 miles (29km) wide, and a mile (1.6km) deep. Grand Canyon overwhelms our senses through its immense size. South Rim is open all year.  North Rim is closed for the winter.")
 Destination.create(name: "Red Rocks", location_url: "https://www.redrocksonline.com/", booking_url: "https://www.redrocksonline.com/plan-your-visit/accommodations", description: "Red Rocks is a geologically formed, open-air amphitheater that is not duplicated anywhere in the world. With Mother Nature as the architect, the design of the Amphitheatre consists of two, three hundred-foot monoliths (Ship Rock and Creation Rock) that provide acoustic perfection for any performance.")

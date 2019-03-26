@@ -9,6 +9,21 @@
   </head>
 
   <body background="https://i.vimeocdn.com/video/601180823_1280x720.jpg">
+      <header class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
+          <nav>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Home", '/' %></li>
+              <% if session[:user_id] %>
+              <li><%= link_to "Logout", '/logout' %></li>
+              <% else %>
+              <li><%= link_to "Login", '/login' %></li>
+              <li><%= link_to "Sign Up", '/users/new' %></li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+      </header>
     <%= yield %>
   </body>
 </html>

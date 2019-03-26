@@ -1,5 +1,6 @@
 class DestinationsController < ApplicationController
   before_action :set_destinations, only: [:edit, :update, :destroy, :show]
+  skip_before_action :require_login, only: [:show, :search, :index]
 
    def index
      @destinations = Destination.all
@@ -17,8 +18,8 @@ class DestinationsController < ApplicationController
    end
 
    def create
-    @destination=Destination.create(destination_params)
-     redirect_to destination_path(@destination)
+     @destination=Destination.create(destination_params)
+     redirect_to @destination
    end
 
    def edit
@@ -26,12 +27,12 @@ class DestinationsController < ApplicationController
 
    def update
      @destination.update(destination_params)
-     redirect_to destination_path(@destination)
+     redirect_to @destination
    end
 
    def delete
      @destination.destroy
-     redirect_to destination_path
+     redirect_to destinations_path
    end
 
    private
@@ -43,6 +44,5 @@ class DestinationsController < ApplicationController
    def destination_params
      params.require(:destination).permit!
    end
-
 
 end
