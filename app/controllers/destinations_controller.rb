@@ -1,5 +1,5 @@
 class DestinationsController < ApplicationController
-  before_action :set_destinations, only: [:edit, :update, :destroy, :show]
+  before_action :set_destinations, only: [:show]
   skip_before_action :require_login, only: [:show, :search, :index]
 
    def index
@@ -28,11 +28,6 @@ class DestinationsController < ApplicationController
    def update
      @destination.update(destination_params)
      redirect_to @destination
-   end
-
-   def delete
-     @destination.destroy
-     redirect_to destinations_path
    end
 
    private

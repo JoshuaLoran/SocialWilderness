@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_users, only: [:edit, :update, :destroy, :profile]
+  before_action :set_users, only: [:edit, :update, :destroy, :profile, :show]
   skip_before_action :require_login, only: [:show, :index, :search, :new, :create]
 
    def index
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
        render :edit
      else
        flash[:message] = 'Unauthorized Action'
-       render 'profile'
+       redirect_to "/users/#{@user.id}/profile"
      end
    end
 
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
    end
 
    def profile
-      render 'profile'
+      render :profile
    end
 
    def create
@@ -43,9 +43,10 @@ class UsersController < ApplicationController
      redirect_to @user
    end
 
-   def delete
+   def destroy
      @user.destroy
-     redirect_to users_path
+     session.clear
+     redirect_to '/login'
    end
 
    private
