@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get '/users/:id/profile', to: 'users#profile'
-  resources :destinations, only: [:show, :index]
   resources :reviews
+  resources :destinations, only: [:show, :index, :create]
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
