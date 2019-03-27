@@ -13,12 +13,13 @@
         <div class="container">
           <nav>
             <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "Home", '/' %></li>
+              <li><%= link_to "Home", '/users' %></li>
               <% if session[:user_id] %>
-              <li><%= link_to "Logout", '/logout' %></li>
+                <li><%= link_to "Logout", '/logout' %></li>
+                <!-- <li> link_to "My Profile", "/users/#{user.id}/profile" %></li> -->
               <% else %>
-              <li><%= link_to "Login", '/login' %></li>
-              <li><%= link_to "Sign Up", '/users/new' %></li>
+                <li><%= link_to "Login", '/login' %></li>
+                <li><%= link_to "Sign Up", '/users/new' %></li>
               <% end %>
             </ul>
           </nav>

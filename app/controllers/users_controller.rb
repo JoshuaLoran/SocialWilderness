@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_users, only: [:edit, :update, :destroy, :show, :profile]
+  before_action :set_users, only: [:edit, :update, :destroy, :profile]
   skip_before_action :require_login, only: [:show, :index, :search, :new, :create]
 
    def index
@@ -10,12 +10,21 @@ class UsersController < ApplicationController
      @user = User.new
    end
 
+   def edit
+     if current_user.id == @user.id
+       render :edit
+     else
+       flash[:message] = 'Unauthorized Action'
+       render 'profile'
+     end
+   end
+
    def search
      @user = User.search(params[:search])
    end
 
    def profile
-     render 'profile'
+      render 'profile'
    end
 
    def create
