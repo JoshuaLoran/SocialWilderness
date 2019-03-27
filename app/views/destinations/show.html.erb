@@ -1,16 +1,21 @@
-<div class="container-fluid">
 <b><h1>Destination: <%= @destination.name %></h1><b>
 
 <%= form_tag @destination %>
-<%=label_tag(@destination.description)%><br><br>
+<%= label_tag(@destination.description)%><br><br>
 
-<a href="<%=@destination.location_url%>" class="card-link">Location</a>
-<a href="<%=@destination.booking_url%>" class="card-link">Book now</a>
 
-</div>
-<body>
+<ul class="nav nav-tabs col-10 col-md-5">
+  <li class="nav-item new-box">
+    <a class="nav-link" href="<%=@destination.location_url%>">Location</a>
+  </li>
+  <li class="nav-item new-box">
+    <a class="nav-link" href="<%=@destination.booking_url%>">Book now</a>
+  </li>
+</ul>
 
-<div class="new-box col-5">
+
+
+<div class="new-box col-10 col-md-5">
 
 
   <h2>User Reviews</h2>
@@ -30,4 +35,4 @@
   <% end %>
   </div>
 
-  </body>
+  <br><br><br><br><br><br>
