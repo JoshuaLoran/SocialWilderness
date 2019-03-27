@@ -1,7 +1,9 @@
 
 <br>
 <h1>Welcome!</h1>
-
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
 <%= form_tag login_path do%>
   <p><h4><%= label_tag :email %></h4>
   <%= text_field_tag :email %></p>
