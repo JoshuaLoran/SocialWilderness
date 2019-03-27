@@ -5,8 +5,8 @@
 <h1><%=@user.name%></h1>
 
 
-<p><b>Age: </b><%=(@user.age)%></p>
-<p><b>About Me: </b><%=(@user.description)%></p><br>
+<p><b>Age: </b><%=@user.age%></p>
+<p><b>About Me: </b><%=@user.description%></p><br>
 <img src= '<%=@user.image_url%>'><br>
 <%= form_for :relationship, url: relationships_path, html: { method: :post } do |f| %>
   <%= f.hidden_field :followed_id, value: @user.id %>
