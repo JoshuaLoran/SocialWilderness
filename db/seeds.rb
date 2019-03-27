@@ -20,12 +20,12 @@ Destination.create(name: "Appalachian Trial", location_url: "http://www.appalach
 
 
 
-Review.create(title: "Cool Concert", content: "I went on this really awesome trip and it was super sick and lovely and woot lots more details.", destination_id: 1, user_id: 1)
-Review.create(title: "Cooler Concert", content: "I went on this really REALLY awesome trip and it was super sick and lovely and woot lots more details.", destination_id: 1, user_id: 1)
-Review.create(title: "Best Concert", content: "I went on this really awesome trip and it was super sick and lovely and woot lots more details.", destination_id: 1, user_id: 2)
-Review.create(title: "Better Concert", content: "I went on this really REALLY awesome trip and it was super sick and lovely and woot lots more details.", destination_id: 1, user_id: 2)
-Review.create(title: "Hike 1", content: "For President Trump, it may have been the best day of his tenure so far.", destination_id: 2, user_id: 1)
-Review.create(title: "Hike 2", content: "The darkest, most ominous cloud hanging over his presidency was all but lifted on Sunday with the release of the special counsel’s conclusions.", destination_id: 2, user_id: 1)
+Review.create(title: "Cool Concert", content: "I went on this really awesome trip and it was super sick and lovely and woot lots more details.", destination_id: 1, user_id: 1, rating: 4)
+Review.create(title: "Cooler Concert", content: "I went on this really REALLY awesome trip and it was super sick and lovely and woot lots more details.", destination_id: 1, user_id: 1, rating: 3)
+Review.create(title: "Best Concert", content: "I went on this really awesome trip and it was super sick and lovely and woot lots more details.", destination_id: 1, user_id: 2, rating: 5)
+Review.create(title: "Better Concert", content: "I went on this really REALLY awesome trip and it was super sick and lovely and woot lots more details.", destination_id: 1, user_id: 2, rating: 1)
+Review.create(title: "Hike 1", content: "For President Trump, it may have been the best day of his tenure so far.", destination_id: 2, user_id: 1, rating: 4)
+Review.create(title: "Hike 2", content: "The darkest, most ominous cloud hanging over his presidency was all but lifted on Sunday with the release of the special counsel’s conclusions.", destination_id: 2, user_id: 1, rating: 4)
 
 Trip.create(title: "Wanna hike there again", user_id: 1, destination_id: 1)
 Trip.create(title: "Hikey hike", user_id: 1, destination_id: 1)
