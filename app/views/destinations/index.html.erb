@@ -1,13 +1,5 @@
-
-<br>
-<br>
-
+<div class="text-white search">
 <h3>All Destinations</h3>
-<ul>
-    <% @destinations.each do |destination| %>
-      <%= link_to destination.name, destination %><br>
-    <% end %>
-</ul>
 
 <h3>Search by Destination Name:</h3>
   <%= form_tag('/destinations/search', method: "get") do %>
@@ -16,3 +8,18 @@
     <%= submit_tag "Search" %><br>
     <small><b><i>Spelling and Capitalization Sensitive</i></b></small>
   <% end %>
+</div>
+      <% @destinations.each do |destination| %><br>
+        <div class="col-5">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title"><%= destination.name %></h4>
+              <p class="card-text">
+                <%= destination.description %>
+              </p>
+              <a href="<%=destination.location_url%>" class="card-link">Location</a>
+              <a href="<%=destination.booking_url%>" class="card-link">Book now</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
