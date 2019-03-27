@@ -20,7 +20,12 @@
         <div class="card">
           <div class="card-body">
             <h4 class="card-title"><p><b><%= review.title %></h4>
-            <h6 class="card-subtitle mb-2 text-muted">By: <%= link_to review.user.name, user_path(review.user_id) %></h6>
+            <h6 class="card-subtitle mb-2 text-muted">By:
+              <% if session[:user_id] %>
+                <%= link_to review.user.name, "/users/#{review.user_id}/profile" %>
+              <% else %>
+                <%= link_to review.user.name, user_path(review.user_id) %>
+              <% end %></h6>
             <p class="card-text">
               <%= review.content %>
             </p>

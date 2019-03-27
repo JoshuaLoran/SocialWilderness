@@ -8,12 +8,17 @@
 <p><b>Age: </b><%=label_tag(@user.age)%></p>
 <p><b>About Me: </b><%=label_tag(@user.description)%></p><br>
 <img src= '<%=@user.image_url%>'><br>
+
+<% if current_user.id == @user.id%>
 <%= link_to "Edit User", edit_user_path(@user) %>
+<% end %>
 <ul>
   <h3><%= @user.name %>'s Trips</h3>
   <%@user.trips.each do |trip| %>
     <p><li><%=trip.title %> - <%= link_to trip.destination.name, destination_path(trip.destination_id) %></li></p>
+    <% if current_user.id == @user.id%>
     <%= link_to "Edit Trip", edit_trip_path(trip) %>
+    <% end %>
   <% end %>
 </ul>
 
@@ -21,6 +26,9 @@
   <h3><%= @user.name %>'s Reviews</h3>
   <%@user.reviews.each do |review| %>
     <p><li><b><%=review.title %></b>: <%= review.content %></li></p>
+    <% if current_user.id == @user.id%>
     <%= link_to "Edit Review", edit_review_path(review) %>
+    <% end %>
   <% end %>
+
 </ul>
