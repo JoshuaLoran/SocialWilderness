@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get '/destinations/search', to: 'destinations#search'
   get '/users/search', to: 'users#search'
+  get '/users/browse', to: 'users#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
