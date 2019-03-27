@@ -16,8 +16,13 @@
 
 body {
      margin: 0;
-     background: url('https://i.vimeocdn.com/video/601180823_1280x720.jpg');
+     background-attachment: url('https://i.vimeocdn.com/video/601180823_1280x720.jpg');
      background-size: cover;
      background-repeat: no-repeat;
      display: compact;
    }
+
+.new-box{
+  border: double;
+  background: linear-gradient(to bottom, #666633 0%, #003300 100%);;
+}

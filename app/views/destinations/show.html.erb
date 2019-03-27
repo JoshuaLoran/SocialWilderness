@@ -4,13 +4,19 @@
 <%= form_tag @destination %>
 <%=label_tag(@destination.description)%><br><br>
 
+<a href="<%=@destination.location_url%>" class="card-link">Location</a>
+<a href="<%=@destination.booking_url%>" class="card-link">Book now</a>
+
 </div>
 <body>
-  
-  <h4>User Reviews</h4>
+
+<div class="new-box col-5">
+
+
+  <h2>User Reviews</h2>
 
   <% @destination.reviews.each do |review| %>
-      <div class="col-5">
+      <div>
         <div class="card">
           <div class="card-body">
             <h4 class="card-title"><p><b><%= review.title %></h4>
@@ -22,6 +28,6 @@
         </div>
       </div><br>
   <% end %>
-  <a href="<%=@destination.location_url%>" class="card-link">Location</a>
-  <a href="<%=@destination.booking_url%>" class="card-link">Book now</a>
+  </div>
+
   </body>
