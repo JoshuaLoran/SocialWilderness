@@ -2,8 +2,8 @@
 
 <h3>Find User by Email:</h3>
   <%= form_tag('/users/search', method: "get") do %>
-    <%= label_tag :search %>
+    <h6>Search</h6>
     <%= text_field_tag :search %>
-    <%= submit_tag "Search" %><br>
-    <small><b><i>Spelling and Capitalization Sensitive</i></b></small>
+    <%= submit_tag %><br>
+    <small color="white"><b><i>Spelling and Capitalization Sensitive</i></b></small>
   <% end %>

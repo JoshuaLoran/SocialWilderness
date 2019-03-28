@@ -1,7 +1,7 @@
 <b><h1>Destination: <%= @destination.name %></h1><b>
 
-<%= form_tag @destination %>
-<%= label_tag(@destination.description)%><br><br>
+<h5><%= form_tag @destination %></h5>
+<h5><%= label_tag(@destination.description)%></h5><br><br>
 
 
 <ul class="nav nav-tabs col-10 col-md-5">
@@ -13,18 +13,16 @@
   </li>
 </ul>
 
-
+<% if @destination.reviews.count != 0 %>
 
 <div class="new-box col-10 col-md-5">
-
-
   <h2>User Reviews</h2>
 
   <% @destination.reviews.each do |review| %>
       <div>
-        <div class="card">
+        <div class="card bg-dark text-light">
           <div class="card-body">
-            <h4 class="card-title"><p><b><%= review.title %></h4>
+            <h4 class="card-title" color="black"><p><b><%= review.title %></h4>
             <h6 class="card-subtitle mb-2 text-muted">By: <%= link_to review.user.name, user_path(review.user_id) %></h6>
             <p class="card-text">
               <%= review.content %>
@@ -34,5 +32,12 @@
       </div><br>
   <% end %>
   </div>
+  <% else %>
+  <div class="new-box col-10 col-md-5">
+    <h2>No reviews yet, you can be the first!</h2>
+    <a class="nav-link" href="/reviews/new">Write a review</a>
+  </div>
+
+  <% end %>
 
   <br><br><br><br><br><br>

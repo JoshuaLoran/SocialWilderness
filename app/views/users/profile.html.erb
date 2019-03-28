@@ -5,8 +5,8 @@
 <h1><%=@user.name%></h1>
 
 
-<p><b>Age: </b><%=@user.age%></p>
-<p><b>About Me: </b><%=@user.description%></p><br>
+<p><h6><b>Age: </b><%=@user.age%></h6></p>
+<p><h6><b>About Me: </b><%=@user.description%></h6></p><br>
 <img src= '<%=@user.image_url%>'><br>
 <%= form_for :relationship, url: relationships_path, html: { method: :post } do |f| %>
   <%= f.hidden_field :followed_id, value: @user.id %>
@@ -19,7 +19,7 @@
 <ul>
   <h3><%= @user.name %>'s Trips</h3>
   <%@user.trips.each do |trip| %>
-    <p><li><%=trip.title %> - <%= link_to trip.destination.name, destination_path(trip.destination_id) %></li></p>
+    <p><li><h6><%=trip.title %> - <%= link_to trip.destination.name, destination_path(trip.destination_id) %></h6></li></p>
     <% if current_user.id == @user.id%>
     <%= link_to "Edit Trip", edit_trip_path(trip) %>
     <% end %>
@@ -29,8 +29,8 @@
 <ul>
   <h3><%= @user.name %>'s Reviews</h3>
   <%@user.reviews.each do |review| %>
-    <p><li><b><%=review.title %></b>
-    <%= review.content %></li></p>
+    <p><li><h6><b><%=review.title %></b></h6>
+    <h6><%= review.content %></h6></li></p>
       <% if current_user.id == @user.id%>
         <%= link_to "Edit Review", edit_review_path(review) %>
       <% end %>
