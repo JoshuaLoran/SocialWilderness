@@ -10,8 +10,6 @@ class Destination < ApplicationRecord
   def self.search(search)
     if search
       destination = Destination.find_by(name: search)
-      if destination
-      end
     end
   end
 

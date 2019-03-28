@@ -1,13 +1,18 @@
 class RelationshipsController < ApplicationController
+  def index
+    @active_relationships = current_user.active_relationships
+    @passive_relationships = current_user.passive_relationships
+  end
+
   def create
     @followed_user = User.find(params[:relationship][:followed_id])
-    @relationship = current_user.active_relationships.build(followed_id: @followed_user.id)
+    @relationship = current_user.active_relationships.new(followed_id: @followed_user.id)
     if @relationship.save
-      flash[:success] = "Successfully invited"
+      flash[:message] = "Follow Successful"
       redirect_to "/users/#{@followed_user.id}/profile"
     else
-      flash[:danger] = "Unsuccessful"
-      redirect_to "/users/#{current_user.id}/profile"
+      flash[:message] = "Follow Unsuccessful"
+      redirect_to "/users/#{@followed_user.id}/profile"
    end
   end
 
@@ -15,7 +20,7 @@ class RelationshipsController < ApplicationController
     @relationship = Relationship.find(params[:id])
     if @relationship.follower_user == current_user
       @relationship.destroy
-      flash[:success] = "Unfollowed"
+      flash[:message] = "Unfollowed"
     end
     redirect_to "/users/#{@relationship.followed_user.id}/profile"
   end
