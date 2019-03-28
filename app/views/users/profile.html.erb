@@ -27,7 +27,7 @@
   <%@user.trips.each do |trip| %>
     <p><li><h6><%=trip.title %> - <%= link_to trip.destination.name, destination_path(trip.destination_id) %></h6></li></p>
     <% if current_user.id == @user.id%>
-    <%= link_to "Edit Trip", edit_trip_path(trip) %>
+      <%= link_to "Edit Trip", edit_trip_path(trip) %>
     <% end %>
   <% end %>
 </ul>

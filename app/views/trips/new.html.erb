@@ -1,11 +1,12 @@
+
 <br>
-<div class= "new-box col-2">
+<div class= "new-box col-3">
   <% if flash[:errors] %> 
     <% flash[:errors].each do |error| %> 
       <li><%= error %></li> 
     <% end %>
- <% end %>
-  <h2>Edit Trip:</h2>
+   <% end %>
+  <h2>Create New Trip:</h2>
   <%= form_for @trip do |f|%>
     <h4><%= f.label :title %></h4>
     <p><%= f.text_field :title %><br></p>
@@ -13,5 +14,4 @@
     <p><%= f.collection_select(:destination_id, Destination.all, :id, :name) %></p>
     <%= f.submit %>
   <% end %>
-  <p><%= button_to "Delete Trip",{ action: "destroy", id: @trip.id }, method: :delete, data: {confirm: "Are you sure?"} %></p>
 </div>
