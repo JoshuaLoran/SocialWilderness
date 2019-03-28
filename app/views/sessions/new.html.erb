@@ -1,15 +1,16 @@
 
 <br><br><br><br>
 <div class="new-box col-4 offset-4 card text-center">
-    <h1>Welcome!</h1>
+  <h1>Welcome!</h1>
     <% if flash[:message] %>
       <%= flash[:message] %>
     <% end %>
+
     <%= form_tag login_path do%>
       <h4><%= label_tag :email %></h4>
-      <%= text_field_tag :email %>
+        <p><%= text_field_tag :email %></p>
       <h4><%= label_tag :password %></h4>
-      <%= password_field_tag :password %>
+        <p><%= password_field_tag :password %></p>
       <%= submit_tag "Login" %>
       <a href="/users/new/"><div>Sign Up</div></a>
     <% end %><br>

@@ -1,11 +1,15 @@
-<h1>User Search Results</h1>
-<% if @user == nil %>
-  <h3>Invalid Search - User Not Found</h3>
-<% else %>
-  <% if current_user %>
-    <h3><%= link_to @user.name, "/users/#{@user.id}/profile" %></h3>
-  <% else %>
-    <h3><%= link_to @user.name, @user %></h3>
-  <% end %>
-<% end %>
-<%= link_to "Go Back", users_path %>
+<div class="new-box">
+  <div class="col-4 offset-4 text-center">
+    <h2>User Search Results</h2>
+      <% if @user == nil %>
+        <h4>Invalid Search - User Not Found</h4>
+      <% else %>
+        <% if current_user %>
+          <h4><%= link_to @user.name, "/users/#{@user.id}/profile" %></h4>
+        <% else %>
+          <h4><%= link_to @user.name, @user %></h4>
+        <% end %>
+      <% end %>
+    <p><b><%= link_to "Go Back", users_path %></b></p>
+  </div>
+</div>

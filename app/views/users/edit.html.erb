@@ -1,14 +1,24 @@
-<h1>Edit your profile</h1>
+<br><br><br>
+<br>
+<br>
+<div class= "new-box col-4 offset-4 card text-center">
+  <% if flash[:errors] %> 
+    <% flash[:errors].each do |error| %> 
+      <li><%= error %></li> 
+    <% end %>
+   <% end %>
 
-<%= form_for @user do |f|%>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br><br>
-  <%= f.label :age %>
-  <%= f.number_field :age%><br><br>
-  <%= f.label :description %>
-  <%= f.text_area :description %><br><br>
-  <%= f.label :image_url, "Image"%>
-  <%= f.text_field :image_url %><br><br>
-  <%= f.submit %>
-<% end %>
-<p><%= button_to "Destroy Profile",{ action: "destroy", id: @user.id }, method: :delete, data: {confirm: "Are you sure?"} %></p>
+  <h2>Edit Profile</h2>
+    <%= form_for @user do |f|%>
+      <h4><%= f.label :name %></h4>
+        <p><%= f.text_field :name %></p>
+      <h4><%= f.label :age %></h4>
+        <p><%= f.number_field :age%></p>
+      <h4><%= f.label :description %></h4>
+        <p><%= f.text_area :description %></p>
+      <h4><%= f.label :image_url, "Image Url"%></h4>
+        <p><%= f.text_field :image_url %></p>
+      <%= f.submit %>
+    <% end %>
+  <p><%= button_to "Destroy Profile",{ action: "destroy", id: @user.id }, method: :delete, data: {confirm: "Are you sure?"} %></p>
+</div>

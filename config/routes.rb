@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get '/destinations/search', to: 'destinations#search'
+  resources :destinations, only: [:show, :index]
   get '/users/search', to: 'users#search'
   get '/users/browse', to: 'users#index'
   get '/login', to: 'sessions#new'
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :destinations, only: [:show, :index]
   resources :reviews
   resources :trips
   resources :relationships, only: [:index, :create, :destroy]

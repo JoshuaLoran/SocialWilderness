@@ -1,7 +1,11 @@
-<h1>Destination Search Results</h1>
-<% if @destination == nil %>
-  <h3>Invalid Search - Destination Not Found</h3>
-<% else %>
-  <h3><%= link_to @destination.name, @destination %></h3>
-<% end %>
-<%= link_to "Go Back", destinations_path %>
+<div class="new-box">
+  <div class="col-4 offset-4 text-center">
+    <h2>Destination Search Results</h2>
+      <% if @destination == nil %>
+        <h4>Invalid Search - Destination Not Found</h4>
+      <% else %>
+        <h4><%= link_to @destination.name, @destination %></h4>
+      <% end %>
+    <p><b><%= link_to "Go Back", destinations_path %></b></p>
+  </div>
+</div>

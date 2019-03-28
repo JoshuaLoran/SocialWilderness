@@ -1,21 +1,24 @@
+<br><br><br>
 <br>
-<div class= "new-box col-2">
+<br>
+<div class= "new-box col-4 offset-4 card text-center">
   <% if flash[:errors] %> 
     <% flash[:errors].each do |error| %> 
       <li><%= error %></li> 
     <% end %>
    <% end %>
-  <h2>Edit Review:</h2>
-  <%= form_for @review do |f|%>
-    <h4><%= f.label :title %></h4>
-    <p><%= f.text_field :title %><br></p>
-    <h4><%= f.label :content, 'Review Content'%></h4>
-    <p><%= f.text_area :content%></p>
-    <h4><%= f.label :rating %></h4>
-    <p><%= f.number_field :rating %></p>
-    <h4>Select Destination</h4>
-    <p><%= f.collection_select(:destination_id, Destination.all, :id, :name) %></p>
-    <%= f.submit %>
-  <% end %>
+
+  <h2>Edit Review</h2>
+    <%= form_for @review do |f|%>
+      <h4><%= f.label :title %></h4>
+        <p><%= f.text_field :title %><br></p>
+      <h4><%= f.label :content, 'Review Content'%></h4>
+        <p><%= f.text_area :content%></p>
+      <h4><%= f.label :rating %></h4>
+        <p><%= f.number_field :rating %></p>
+      <h4>Select Destination</h4>
+        <p><%= f.collection_select(:destination_id, Destination.all, :id, :name) %></p>
+      <%= f.submit %>
+    <% end %>
   <p><%= button_to "Delete Review",{ action: "destroy", id: @review.id }, method: :delete, data: {confirm: "Are you sure?"} %></p>
 </div>
