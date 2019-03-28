@@ -1,8 +1,9 @@
+<div class="new-box"><br>
 <b><h1>Destination: <%= @destination.name %></h1><b>
 
 <h5><%= form_tag @destination %></h5>
-<h5><%= label_tag(@destination.description)%></h5><br><br>
-
+<h6><%= label_tag(@destination.description)%></h6><br>
+</div><br><br>
 
 <ul class="nav nav-tabs col-10 col-md-5">
   <li class="nav-item new-box">
@@ -10,6 +11,9 @@
   </li>
   <li class="nav-item new-box">
     <a class="nav-link" href="<%=@destination.booking_url%>">Book now</a>
+  </li>
+  <li class="nav-item new-box">
+    <a class="nav-link" href="/reviews/new">Add a review</a>
   </li>
 </ul>
 
