@@ -24,7 +24,7 @@ class UsersController < ApplicationController
    end
 
    def profile
-     @relationship = current_user.active_relationships.where(followed_id: @user.id).first 
+     @relationship = current_user.active_relationships.where(followed_id: @user.id).first
      render :profile
    end
 

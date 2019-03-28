@@ -24,9 +24,6 @@ class User < ApplicationRecord
   def self.search(search)
     if search
       user = User.find_by(email: search)
-      # if !user
-      #
-      # end
     end
   end
 
