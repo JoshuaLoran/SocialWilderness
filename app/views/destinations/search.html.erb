@@ -1,3 +1,7 @@
 <h1>Destination Search Results</h1>
-<h3><%= link_to @destination.name, @destination %></h3>
+<% if @destination == nil %>
+  <h3>Invalid Search - Destination Not Found</h3>
+<% else %>
+  <h3><%= link_to @destination.name, @destination %></h3>
+<% end %>
 <%= link_to "Go Back", destinations_path %>
