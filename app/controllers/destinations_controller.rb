@@ -12,6 +12,9 @@ class DestinationsController < ApplicationController
 
    def search
      @destination = Destination.search(params[:search])
+     if !@destination
+       redirect_to destinations_path
+     end
    end
 
    def show
