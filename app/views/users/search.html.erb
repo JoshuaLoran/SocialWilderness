@@ -1,6 +1,6 @@
 <h1>User Search Results</h1>
 <% if @user == nil %>
-  <h3>Invalid Search</h3>
+  <h3>Invalid Search - User Not Found</h3>
 <% else %>
   <% if current_user %>
     <h3><%= link_to @user.name, "/users/#{@user.id}/profile" %></h3>
