@@ -1,17 +1,19 @@
-
+<br><br><br>
 <br>
-<div class= "new-box col-3">
+<br>
+<div class= "new-box col-4 offset-4 card text-center">
   <% if flash[:errors] %> 
     <% flash[:errors].each do |error| %> 
       <li><%= error %></li> 
     <% end %>
    <% end %>
-  <h2>Create New Trip:</h2>
-  <%= form_for @trip do |f|%>
-    <h4><%= f.label :title %></h4>
-    <p><%= f.text_field :title %><br></p>
-    <h4>Select Destination</h4>
-    <p><%= f.collection_select(:destination_id, Destination.all, :id, :name) %></p>
-    <%= f.submit %>
-  <% end %>
+
+  <h2>Create New Trip</h2>
+    <%= form_for @trip do |f|%>
+      <h4><%= f.label :title %></h4>
+        <p><%= f.text_field :title %></p>
+      <h4>Select Destination</h4>
+        <p><%= f.collection_select(:destination_id, Destination.all, :id, :name) %></p>
+      <%= f.submit %>
+    <% end %>
 </div>

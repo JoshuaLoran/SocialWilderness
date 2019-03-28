@@ -1,9 +1,12 @@
-<h1>Wilderness Users' Page</h1>
+<div class="new-box">
+  <div class="col-4 offset-4 text-center">
+    <h2>Search For Users</h2>
 
-<h3>Find User by Email:</h3>
-  <%= form_tag('/users/search', method: "get") do %>
-    <h6>Search</h6>
-    <%= text_field_tag :search %>
-    <%= submit_tag %><br>
-    <small color="white"><b><i>Spelling and Capitalization Sensitive</i></b></small>
-  <% end %>
+    <h3>Find User by Email</h3>
+      <%= form_tag('/users/search', method: "get") do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag "Search"%><br>
+        <small color="white"><b><i>Spelling and Capitalization Sensitive</i></b></small>
+      <% end %>
+  </div>
+</div>

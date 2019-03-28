@@ -1,14 +1,13 @@
 <div class="new-box">
-  <div class="col-4 offset-4">
-  <h2>All Destinations</h2>
+  <div class="col-4 offset-4 text-center">
+    <h2>All Destinations</h2>
 
-  <h5>Search by Destination Name:</h5>
-    <%= form_tag('/destinations/search', method: "get") do %>
-      <%= label_tag :search %>
-      <%= text_field_tag :search %>
-      <%= submit_tag "Search" %><br>
-      <small><b><i>Spelling and Capitalization Sensitive</i></b></small>
-    <% end %>
+    <h5>Search by Destination Name</h5>
+      <%= form_tag('/destinations/search', method: "get") do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag "Search" %><br>
+        <small><b><i>Spelling and Capitalization Sensitive</i></b></small>
+      <% end %>
   </div>
 </div>
       <% @destinations.each do |destination| %><br>
