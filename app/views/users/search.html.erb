@@ -1,3 +1,11 @@
 <h1>User Search Results</h1>
-<h3><%= link_to @user.name, @user %></h3>
+<% if @user == nil %>
+  <h3>Invalid Search</h3>
+<% else %>
+  <% if current_user %>
+    <h3><%= link_to @user.name, "/users/#{@user.id}/profile" %></h3>
+  <% else %>
+    <h3><%= link_to @user.name, @user %></h3>
+  <% end %>
+<% end %>
 <%= link_to "Go Back", users_path %>

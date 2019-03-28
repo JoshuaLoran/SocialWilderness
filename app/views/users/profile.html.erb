@@ -8,12 +8,18 @@
 <p><h6><b>Age: </b><%=@user.age%></h6></p>
 <p><h6><b>About Me: </b><%=@user.description%></h6></p><br>
 <img src= '<%=@user.image_url%>'><br>
-<%= form_for :relationship, url: relationships_path, html: { method: :post } do |f| %>
-  <%= f.hidden_field :followed_id, value: @user.id %>
-  <%= f.submit 'Invite', class: 'btn btn-success' %>
-<% end %>
+
   <% if current_user.id == @user.id%>
     <%= link_to "Edit User", edit_user_path(@user) %>
+  <% else %>
+    <% if @relationship %>
+      <%= link_to "Stop Following", @relationship, method: :delete %>
+    <% else %>
+      <%= form_for :relationship, url: relationships_path, html: { method: :post } do |f| %>
+        <%= f.hidden_field :followed_id, value: @user.id %>
+        <%= f.submit 'Follow', class: 'btn btn-success' %>
+      <% end %>
+    <% end %>
   <% end %>
 
 <ul>
