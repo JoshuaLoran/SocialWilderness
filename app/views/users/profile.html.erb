@@ -1,44 +1,75 @@
 <% if flash[:message] %>
   <%= flash[:message] %>
 <% end %>
+<div class="row">
 
-<h1><%=@user.name%></h1>
 
+<div class="new-box col-3">
+  <div class="offset-2">
+  <br><img src= '<%=@user.image_url%>'><br>
+  <h1><%=@user.name%></h1>
+  <p><h6><b>Age: </b><%=@user.age%></h6>
+  <p><h6><b>About Me: </b><%=@user.description%></h6>
 
-<p><h6><b>Age: </b><%=@user.age%></h6></p>
-<p><h6><b>About Me: </b><%=@user.description%></h6></p><br>
-<img src= '<%=@user.image_url%>'><br>
-
-  <% if current_user.id == @user.id%>
-    <%= link_to "Edit User", edit_user_path(@user) %>
-  <% else %>
-    <% if @relationship %>
-      <%= link_to "Stop Following", @relationship, method: :delete %>
-    <% else %>
-      <%= form_for :relationship, url: relationships_path, html: { method: :post } do |f| %>
-        <%= f.hidden_field :followed_id, value: @user.id %>
-        <%= f.submit 'Follow', class: 'btn btn-success' %>
+    <h6>Friends:
+      <% current_user.active_relationships.each do |i|%>
+        <% count = 0 %>
+        <% if i.follower_id == current_user.id %>
+          <% count += 1%>
+        <% end %>
+        <%=count%>
       <% end %>
-    <% end %>
-  <% end %>
 
-<ul>
-  <h3><%= @user.name %>'s Trips</h3>
-  <%@user.trips.each do |trip| %>
-    <p><li><h6><%=trip.title %> - <%= link_to trip.destination.name, destination_path(trip.destination_id) %></h6></li></p>
+    </h6>
+    <h6>Followers: <%= current_user.passive_relationships.count %></h6>
+    <h6>Following: <%= current_user.active_relationships.count %></h6><br>
+
     <% if current_user.id == @user.id%>
-      <%= link_to "Edit Trip", edit_trip_path(trip) %>
-    <% end %>
-  <% end %>
-</ul>
-
-<ul>
-  <h3><%= @user.name %>'s Reviews</h3>
-  <%@user.reviews.each do |review| %>
-    <p><li><h6><b><%=review.title %></b></h6>
-    <h6><%= review.content %></h6></li></p>
-      <% if current_user.id == @user.id%>
-        <%= link_to "Edit Review", edit_review_path(review) %>
+      <b><%= link_to "Edit User", edit_user_path(@user) %></b>
+    <% else %>
+      <% if @relationship %>
+        <%= link_to "Stop Following", @relationship, method: :delete %>
+      <% else %>
+        <%= form_for :relationship, url: relationships_path, html: { method: :post } do |f| %>
+          <%= f.hidden_field :followed_id, value: @user.id %>
+          <%= f.submit 'Follow', class: 'btn btn-success' %>
+        <% end %>
       <% end %>
+    <% end %>
+
+  </div>
+  <br>
+</div>
+
+
+<div class="col-12 col-md-5">
+  <br><br><h3 class="text-center"><%= @user.name %>'s Reviews</h3><br>
+
+  <%@user.reviews.each do |review| %>
+      <div>
+        <div class="card bg-dark text-light">
+          <div class="card-body">
+            <h4 class="card-title"><p><b><%= review.title %></h4>
+            <p class="card-text">
+              <%= review.content %>
+            </p>
+            <%= link_to "Edit Review", edit_review_path(review) %>
+          </div>
+        </div>
+      </div><br>
   <% end %>
-</ul>
+</div>
+
+  <br><br>
+    <h3 class="text-center"><%= @user.name %>'s Trips</h3><br>
+
+    <%@user.trips.each do |trip| %>
+      <div class="new-box col-12"><br><h6><%=trip.title %> - <%= link_to trip.destination.name, destination_path(trip.destination_id) %></h6>
+      <% if current_user.id == @user.id%>
+        <%= link_to "Edit Trip", edit_trip_path(trip) %>
+      <% end %>
+      </div><br>
+    <% end %>
+
+
+</div>
