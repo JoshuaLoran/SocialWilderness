@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root 'sessions#new'
   get '/destinations/search', to: 'destinations#search'
   resources :destinations, only: [:show, :index]
   get '/users/search', to: 'users#search'
