@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    redirect_to @user
+    redirect_to "/users/#{@user.id}/profile"
   end
 
   def destroy
