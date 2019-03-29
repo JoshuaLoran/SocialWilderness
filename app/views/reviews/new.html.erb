@@ -12,6 +12,8 @@
     <%= form_for @review do |f|%>
       <h4><%= f.label :title %></h4>
         <p><%= f.text_field :title %></p>
+        <h4><%= f.label :rating %></h4>
+          <p><%= f.number_field :rating %></p>
       <h4><%= f.label :content, 'Review Content' %></h4>
         <p><%= f.text_area :content%></p>
       <h4>Select Destination</h4>
