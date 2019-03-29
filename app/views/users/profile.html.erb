@@ -36,10 +36,12 @@
       <div>
         <div class="card bg-dark text-light">
           <div class="card-body">
-            <h4 class="card-title"><p><b><%= review.title %></h4>
+            <h4 class="card-title"><p><b><a href="<%=destination_path(review.destination)%>" style="color: white"><%=review.destination.name%></a></h4>
+            <h5><%= review.title %></h5>
             <p class="card-text">
               <%= review.content %>
             </p>
+            <h6>Rating: <%= review.rating %></h6>
             <% if current_user == @user %>
             <%= link_to "Edit Review", edit_review_path(review) %>
             <% end %>

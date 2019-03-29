@@ -3,7 +3,7 @@ class DestinationsController < ApplicationController
   skip_before_action :require_login, only: [:show, :search, :index]
 
   def index
-    @destinations = Destination.all
+    @destinations = Destination.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
 
   def search
