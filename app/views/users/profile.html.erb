@@ -58,7 +58,7 @@
 
   <br><br>
     <h3 class="text-center"><%= @user.name %>'s Trips</h3><br>
-
+    <a href="/trips/new">Make a new trip</a>
     <%@user.trips.each do |trip| %>
       <div class="new-box col-12"><br><h6><%=trip.title %> - <%= link_to trip.destination.name, destination_path(trip.destination_id) %></h6>
       <% if current_user.id == @user.id%>
