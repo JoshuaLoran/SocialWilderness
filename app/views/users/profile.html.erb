@@ -40,7 +40,9 @@
             <p class="card-text">
               <%= review.content %>
             </p>
+            <% if current_user == @user %>
             <%= link_to "Edit Review", edit_review_path(review) %>
+            <% end %>
           </div>
         </div>
       </div><br>

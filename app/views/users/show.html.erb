@@ -1,14 +1,13 @@
 <div class="row">
 
 
-<div class="new-box col-3 text-center">
-
+<div class="new-box col-3 text-center"><br>
+<p><img src= '<%=@user.image_url%>'></p><br>
 <h1><%=@user.name%></h1>
 
 <%= form_tag @user %>
-<p><h6><b>Age: </b><%=label_tag(@user.age)%></h6></p>
-<p><h6><b>About Me: </b><%=label_tag(@user.description)%></h6></p>
-<p><img src= '<%=@user.image_url%>'></p><br>
+<p><h6><b>Age: </b><%=label_tag(@user.age)%></h6>
+<p><h6><b>About Me: </b><%=label_tag(@user.description)%></h6>
 
 <b><%= link_to "Login", '/login' %> or <%= link_to "Join Now", '/users/new' %> to See Full Profile</b>
 

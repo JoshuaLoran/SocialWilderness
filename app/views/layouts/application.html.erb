@@ -31,7 +31,7 @@
                 </li>
                 <% if session[:user_id] %>
                 <li class="nav-item">
-                  <a class="nav-link" href="/logout">Logout</a>
+                  <a class="nav-link" href="/logout">Logout (Logged in as: <%=current_user.name%>)</a>
                 </li>
                 <% else %>
                 <li class="nav-item">
