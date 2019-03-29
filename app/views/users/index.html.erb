@@ -9,4 +9,23 @@
         <small color="white"><b><i>Spelling and Capitalization Sensitive</i></b></small>
       <% end %>
   </div>
-</div>
+  <% @users.each do |user| %><br>
+  </div>
+    <div class="col-4 offset-4">
+      <div class="card bg-dark text-light">
+        <div class="card-body">
+          <h4 class="card-title">
+            <% if current_user%>
+              <a href="/users/<%=user.id%>/profile"><img src= '<%=user.image_url%>'></a>
+              <a href="/users/<%=user.id%>/profile" style="color: white"><%=user.name%></a>
+            <% else %>
+              <a href=<%=users_path(user)%>><img src= '<%=user.image_url%>'></a>
+              <a href=<%=users_path(user)%> style="color: white"><%=user.name%></a>
+            <%end%></h4>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <br><div class="col-2 offset-5"><h5 class="text-center"><%= will_paginate @users %></h5></div>
+
+  <br><br><br><br><br><br>

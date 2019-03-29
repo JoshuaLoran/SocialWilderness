@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:show, :index, :search, :new, :create]
 
   def index
-    @users = User.all
+    @users = User.order('created_at DESC').paginate(:page => params[:page], :per_page => 4)
   end
 
   def new
