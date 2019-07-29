@@ -12,7 +12,7 @@ If you want to pull down to make a local host:
 4. Run `rake db:migrate` and `rake db:seed` to build tables and populate the database.
 5. Finally, to run the  website `rails s`.
 
-The database structure is PostGres
+The database structure is Postgres.
 ___
 ### Disclaimer:
 
